@@ -1,0 +1,380 @@
+.container-partido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.cancha-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.div-grande {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2rem;
+}
+.div-dado-Jugador{
+    background-color: white;
+    padding: 1rem;
+    border-style:solid;
+    border-width: 2px;
+}
+.div-dado-Pc{
+    background-color: white;
+    padding: 1rem;
+    border-style:solid;
+    border-width: 2px;
+}
+.div-dado-Jugador p {
+    position: absolute;
+    bottom: 6rem;
+    left: 38.4rem;
+    z-index: 1;
+    color: black;
+}
+.div-dado-Pc p {
+    position: absolute;
+    bottom: 6rem;
+    right: 38.3rem;
+    z-index: 1;
+    color: black;
+}
+.div-jugadores{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.div-jugadoresUno{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    right: 25em;
+    top:6em;
+}
+.div-jugadoresDos{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    right: 14em;
+    top:6em;
+}
+.div-jugadoresTres{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    left: 64em;
+    top:27em;
+}
+.div-jugadoresCuatro{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    left: 75em;
+    top:25em;
+}
+.div-jugadores .img-player{
+    width: 10rem;
+}
+.img-player img{
+    height: 11rem;
+
+}
+.img-player{
+    text-align: center;
+}
+@font-face {
+    font-family: 'Digital Display';
+    src: url('https://praxeds.github.io/scrimba-basketball-scoreboard/Assets/Digital-Display.woff2') format('woff2'),
+    url('https://praxeds.github.io/basketball-scoreboard/Assets/Digital-Display.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.score{
+    font-family: 'Digital Display',monospace;
+    color: #ffffff;
+    font-size:40px;
+    text-align: center;
+}
+.div-menu button{
+    width: 9rem;
+    margin: 0 0.5rem;
+}
+.div-menu-tiro{
+    display: flex;
+    position: fixed;
+    bottom: 10%;
+    left: 10%;
+    padding:  10px 40px 40px 50px;
+    background-color: white;
+    border-style:solid;
+    border-width: 3px;
+    border-radius: 12px;
+}
+.partido-resultado-body{
+    background-color: #46c8de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+
+}
+.partido-resultado-moneda{
+    display: flex;
+    flex-direction: row;
+    margin-bottom:30px;
+
+}
+.cant-monedas{
+    margin-top: 1em;
+    margin-left: 1em;
+}
+.moneda{
+    margin-left: 30px;
+}
+.boton-resultado{
+    margin-left:25px;
+}
+.barra-progreso{
+    position: fixed;
+    width: 6%;
+    height:20px;
+
+}
+.progreso{
+    width: 100%;
+    height: 100%;
+    background-color: greenyellow;
+    position: relative;
+    top:60px;
+}
+.partido-item{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:20px;
+}
+
+.partido-item-todos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img-item{
+    margin-bottom:40px;
+}
+.body-partido-items{
+    background-color: #695b5b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.input-number{
+    width:40%;
+    padding: 8px;
+    border-radius: 5px;
+}
+.verde{
+    background-color: black;
+    color: green;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+.rojo{
+    background-color: black;
+    color: red;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+.azul{
+    background-color: black;
+    color: #7979e3;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+.naranja{
+    background-color: black;
+    color: orangered;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+.amarillo{
+    background-color: black;
+    color: yellow;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+.mensaje{
+    margin-bottom: 1em;
+}
+.stat{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    border-style:solid;
+    border-width: 2px;
+    width: 15em;
+}
+.stats-jugador{
+    display: flex;
+    justify-content: space-around;
+    width: 32rem;
+}
+.stats-pc{
+    display: flex;
+    width: 32rem;
+    justify-content: space-around;
+}
+.estadisticasPartido{
+    display: flex;
+    justify-content: space-around;
+}
+.stat-nombre{
+    display:flex;
+    flex-direction: row;
+}
+.stat-nombre img{
+    width:20px;
+    height:20px;
+    margin:3px;
+}
+.guardar{
+    position:absolute;
+    top:1rem;
+    left:1rem;
+}
+.accionElegidaPc{
+    position: absolute;
+    top: 9rem;
+    right: 47rem;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    top: 11rem;
+    left: 29rem;
+    width: 67rem;
+    height: 35rem;
+    z-index: 1;
+}
+.overlay2 {
+    display: none;
+    position: absolute;
+    top: 10rem;
+    left: 29rem;
+    width: 67rem;
+    height: 35rem;
+    z-index: 2;
+}
+.overlay2 video{
+    width: 34rem;
+    height: auto;
+    position: relative;
+    left: 15rem;
+}
+.accionOcurrida{
+    position: absolute;
+    z-index: 3;
+    left: 23rem;
+    top: 1rem;
+    color: white;
+}
+.adivineAccion{
+    position: absolute;
+    z-index: 3;
+    left: 45rem;
+    bottom: 18rem;
+    color: white;
+}
+.oculto{
+    display: none;
+}
+
+.infoModal {
+    background-color: #f3d7d7;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    top: 0rem;
+    text-align: center;
+}
+.botellas{
+    position: absolute;
+    top: 9rem;
+    left: 3rem;
+    background-color: black;
+    width: 5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+.botellas img{
+    height: 3rem;
+    width: auto;
+    margin-top: 10px;
+}
+.mejoras{
+    color: white;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.celesteBotella{
+    color: #3BD0FE;
+    background-color: white;
+    font-weight: bold;
+}
+.naranjaBotella{
+    color:#FEC73B;
+    background-color: white;
+    font-weight: bold;
+}
+.verdeBotella{
+    color: #C0FE3B;
+    background-color: white;
+    font-weight: bold;
+}
+.violetaBotella{
+    color: #5F3BFE;
+    background-color: white;
+    font-weight: bold;
+}
+.rosaBotella{
+    color: #FE3B99;
+    background-color: white;
+    font-weight: bold;
+}
+.azulBotella{
+    color: #3A71FF;
+    background-color: white;
+    font-weight: bold;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/partido.css">
+    <title>Partido</title>
+</head>
+<body class="partido-resultado-body">
+    <div class="partido-resultado">
+        <h1 th:text="${mensaje}" class="mensaje"></h1>
+        <div class="partido-resultado-moneda">
+            <img src="images/MONEDA.png" alt="moneda" height="60px" class="moneda">
+            <h2 class="cant-monedas" th:text="${mensaje == 'GANASTE' ? '500' : '100'}"></h2>
+        </div>
+        <a href="menuPrincipal"><button class="boton-resultado">Home</button></a>
+    </div>
+</body>
+</html>

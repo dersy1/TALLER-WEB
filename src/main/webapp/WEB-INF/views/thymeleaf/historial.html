@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/historial.css">
+    <title>Historial</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Equipo Jugador</th>
+        <th>Equipo Pc</th>
+        <th>Puntaje Jugador</th>
+        <th>Puntaje Pc</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="partido : ${partidos}">
+        <td th:text="${partido.getId()}"></td>
+        <td th:text="${partido.getEquipoJugador().getNombre()}"></td>
+        <td th:text="${partido.getEquipoPc().getNombre()}"></td>
+        <td th:text="${partido.getPuntosUsuario()}"></td>
+        <td th:text="${partido.getPuntosPc()}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="volver">
+  <a href="menuPrincipal.html">
+    <button>Volver</button>
+  </a>
+  </div>
+  <img class="fondo" src="images/MENUFONDO.jpg">
+</body>
+</html>

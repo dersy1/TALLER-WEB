@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/partido.css">
+    <title>Partido</title>
+</head>
+<body>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>-->
+<form action="guardarPartido">
+    <button type="submit" class="guardar">Guardar</button>
+</form>
+<div class="botellas">
+    <div>
+        <p class="mejoras">Mejoras</p>
+    </div>
+    <div th:if="${items.getDriblear()}">
+        <img src="images/ITEM3.png">
+    </div>
+    <div th:if="${items.getTirar()}">
+        <img src="images/ITEM.png">
+    </div>
+    <div th:if="${items.getPasar()}">
+        <img src="images/ITEM2.png">
+    </div>
+    <div th:if="${items.getRobar()}">
+        <img src="images/ITEM4.png">
+    </div>
+    <div th:if="${items.getTapar()}">
+        <img src="images/ITEM5.png">
+    </div>
+    <div th:if="${items.getInterceptar()}">
+        <img src="images/ITEM6.png">
+    </div>
+</div>
+
+<section class="container-partido">
+
+    <h1 class="score mt-3 mb-3">
+        <span id="puntajeYo" th:text="${partido.getPuntajeJugador()}"></span>
+        -
+        <span id="puntajeRival" th:text="${partido.getPuntajePc()}"></span></h1>
+
+    <div id="modalOverlay" class="overlay">
+        <div class="infoModal">
+        </div>
+    </div>
+    <div id="modalOverlay2" class="overlay2" th:name="${accion}" th:name2="${partido.getTengoLaPelota()}">
+
+    </div>
+    <h3 class="adivineAccion" th:if="${adivinoLaAccionDeLaPc}" th:text="'Adivinaste + 5'"></h3>
+    <div th:if="${partido.getPosicion() == 1 || partido.getPosicion() == 2}"
+         th:class="${partido.getPosicion() == 1} ? 'div-jugadoresUno' :  'div-jugadoresDos'">
+        <div class="img-player">
+            <p th:text="${partido.getEquipoJugador().getJugador1().getNombre()}"
+               th:class="${partido.getEquipoJugador().getColor()}"></p>
+            <img th:src="${partido.getEquipoJugador().getJugador1().getImagen()}" alt="jugador" class="jug-loc-1">
+        </div>
+        <div class="img-player">
+            <p th:text="${partido.getEquipoJugador().getJugador2().getNombre()}"
+               th:class="${partido.getEquipoJugador().getColor()}"></p>
+            <img th:src="${partido.getEquipoJugador().getJugador2().getImagen()}" alt="jugador" class="jug-loc-2 mt-5">
+        </div>
+        <div class="img-player">
+            <p th:text="${partido.getEquipoPC().getJugador2().getNombre()}"
+               th:class="${partido.getEquipoPC().getColor()}"></p>
+            <img th:src="${partido.getEquipoPC().getJugador2().getImagen()}" alt="jugador" class="jug-vis-1 mt-5">
+        </div>
+        <div class="img-player">
+            <p th:text="${partido.getEquipoPC().getJugador1().getNombre()}"
+               th:class="${partido.getEquipoPC().getColor()}"></p>
+            <img th:src="${partido.getEquipoPC().getJugador1().getImagen()}" alt="jugador" class="jug-vis-2">
+        </div>
+    </div>
+    <div th:if="${partido.getPosicion() == 3 || partido.getPosicion() == 4}"
+         th:class="${partido.getPosicion() == 3} ? 'div-jugadoresTres' : 'div-jugadoresCuatro'">
+        <div class="img-player">
+            <p th:text="${partido.getEquipoJugador().getJugador1().getNombre()}"
+               th:class="${partido.getEquipoJugador().getColor()}"></p>
+            <img th:src="${partido.getEquipoJugador().getJugador1().getImagen()}" alt="jugador" class="jug-loc-1">
+        </div>
+        <div class="img-player">
+            <p th:text="${partido.getEquipoJugador().getJugador2().getNombre()}"
+               th:class="${partido.getEquipoJugador().getColor()}"></p>
+            <img th:src="${partido.getEquipoJugador().getJugador2().getImagen()}" alt="jugador" class="jug-loc-2 mt-5">
+        </div>
+        <div class="img-player">
+            <p th:text="${partido.getEquipoPC().getJugador2().getNombre()}"
+               th:class="${partido.getEquipoPC().getColor()}"></p>
+            <img th:src="${partido.getEquipoPC().getJugador2().getImagen()}" alt="jugador" class="jug-vis-1 mt-5">
+        </div>
+        <div class="img-player">
+            <p th:text="${partido.getEquipoPC().getJugador1().getNombre()}"
+               th:class="${partido.getEquipoPC().getColor()}"></p>
+            <img th:src="${partido.getEquipoPC().getJugador1().getImagen()}" alt="jugador" class="jug-vis-2">
+        </div>
+    </div>
+
+    <div class="div-grande mb-4">
+        <div class="stats-jugador">
+            <div class="stat">
+                <div class="stat-nombre">
+                    <p th:text="${partido.getEquipoJugador().getJugador1().getNombre()}"></p>
+                    <img th:if="${partido.getTienePelotaJugador() == 1 && partido.getTengoLaPelota()}"
+                         src="images/ICON.png" alt="icon">
+                </div>
+                <div class="estadisticasPartido">
+                    <div>
+                        <p>
+                            <span th:text="${'Drible: ' + partido.getEquipoJugador().getJugador1().getDrible()}"></span>
+                            <span th:if="${items.getDriblear()}" class="verdeBotella">+5</span>
+                        </p>
+                        <p>
+                            <span th:text="${'Tiro: '+partido.getEquipoJugador().getJugador1().getTiro()}"></span>
+                            <span th:if="${items.getTirar()}" class="celesteBotella">+5</span>
+                        </p>
+                        <p>
+                            <span th:text="${'Pase: '+partido.getEquipoJugador().getJugador1().getPase()}"></span>
+                            <span th:if="${items.getPasar()}" class="naranjaBotella">+5</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <span th:text="${'Robo: '+partido.getEquipoJugador().getJugador1().getRobo()}"></span>
+                            <span th:if="${items.getRobar()}" class="violetaBotella">+5</span>
+                        </p>
+                        <p>
+                            <span th:text="${'Tapa: '+partido.getEquipoJugador().getJugador1().getTapa()}"></span>
+                            <span th:if="${items.getTapar()}" class="rosaBotella">+5</span>
+                        </p>
+                        <p>
+                            <span th:text="${'Inter: '+partido.getEquipoJugador().getJugador1().getIntercepcion()}"></span>
+                            <span th:if="${items.getInterceptar()}" class="azulBotella">+5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-nombre">
+                    <p th:text="${partido.getEquipoJugador().getJugador2().getNombre()}"></p>
+                    <img th:if="${partido.getTienePelotaJugador()==2&&partido.getTengoLaPelota()}" src="images/ICON.png"
+                         alt="icon">
+                </div>
+                <div class="estadisticasPartido">
+                    <div>
+                        <p>
+                            <span th:text="${'Drible: ' + partido.getEquipoJugador().getJugador2().getDrible()}"></span>
+                            <span th:if="${items.getDriblear()}" class="verdeBotella">+5</span>
+                        </p>
+                        <p>
+                            <span th:text="${'Tiro: '+partido.getEquipoJugador().getJugador2().getTiro()}"></span>
+                            <span th:if="${items.getTirar()}" class="celesteBotella">+5</span>
+                        </p>
+                        <p>
+                            <span th:text="${'Pase: '+partido.getEquipoJugador().getJugador2().getPase()}"></span>
+                            <span th:if="${items.getPasar()}" class="naranjaBotella">+5</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <p>
+                            <span th:text="${'Robo: '+partido.getEquipoJugador().getJugador2().getRobo()}"></span>
+                            <span th:if="${items.getRobar()}" class="violetaBotella">+5</span>
+                        </p>
+                        <p>
+                            <span th:text="${'Tapa: '+partido.getEquipoJugador().getJugador2().getTapa()}"></span>
+                            <span th:if="${items.getTapar()}" class="rosaBotella">+5</span>
+                        </p>
+                        <p>
+                            <span th:text="${'Inter: '+partido.getEquipoJugador().getJugador2().getIntercepcion()}"></span>
+                            <span th:if="${items.getInterceptar()}" class="azulBotella">+5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div-dado-Jugador">
+            <p th:text="${partido.getDadoJugador()}"></p>
+            <img src="images/DADO.jpg" alt="dado" height="100px">
+        </div>
+
+        <div th:if="${partido.getTengoLaPelota()}" class="div-menu">
+            <form action="acciones" method="POST">
+                <button type="submit" value="driblear" name="tipoAccion" id="driblear">Driblear</button>
+                <button type="submit" value="tirar" name="tipoAccion" id="tirar">Tirar</button>
+                <button type="submit" value="pasar" name="tipoAccion" id="pasar">Pasar</button>
+            </form>
+        </div>
+        <div th:if="${!partido.getTengoLaPelota()}" class="div-menu">
+            <form action="acciones" method="POST">
+                <button type="submit" value="robar" name="tipoAccion" id="robar">Robar</button>
+                <button type="submit" value="tapar" name="tipoAccion" id="tapar">Tapar</button>
+                <button type="submit" value="interceptar" name="tipoAccion" id="interceptar">Interceptar</button>
+            </form>
+        </div>
+        <div class="div-dado-Pc">
+            <p th:text="${partido.getDadoPC()}"></p>
+            <img src="images/DADO.jpg" alt="dado" height="100px">
+        </div>
+
+        <div class="stats-pc">
+            <div class="stat">
+                <div class="stat-nombre">
+                    <p th:text="${partido.getEquipoPC().getJugador1().getNombre()}"></p>
+                    <img th:if="${partido.getTienePelotaJugador() == 1&& !partido.getTengoLaPelota()}"
+                         src="images/ICON.png" alt="icon">
+                </div>
+                <div class="estadisticasPartido">
+                    <div>
+                        <p th:text="${'Drible: '+partido.getEquipoPC().getJugador1().getDrible()}"></p>
+                        <p th:text="${'Tiro: '+partido.getEquipoPC().getJugador1().getTiro()}"></p>
+                        <p th:text="${'Pase: '+partido.getEquipoPC().getJugador1().getPase()}"></p>
+                    </div>
+                    <div>
+                        <p th:text="${'Robo: '+partido.getEquipoPC().getJugador1().getRobo()}"></p>
+                        <p th:text="${'Tapa: '+partido.getEquipoPC().getJugador1().getTapa()}"></p>
+                        <p th:text="${'Inter: '+partido.getEquipoPC().getJugador1().getIntercepcion()}"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-nombre">
+                    <p th:text="${partido.getEquipoPC().getJugador2().getNombre()}"></p>
+                    <img th:if="${partido.getTienePelotaJugador()==2&&!partido.getTengoLaPelota()}"
+                         src="images/ICON.png" alt="icon">
+                </div>
+                <div class="estadisticasPartido">
+                    <div>
+                        <p th:text="${'Drible: '+partido.getEquipoPC().getJugador2().getDrible()}"></p>
+                        <p th:text="${'Tiro: '+partido.getEquipoPC().getJugador2().getTiro()}"></p>
+                        <p th:text="${'Pase: '+partido.getEquipoPC().getJugador2().getPase()}"></p>
+                    </div>
+                    <div>
+                        <p th:text="${'Robo: '+partido.getEquipoPC().getJugador2().getRobo()}"></p>
+                        <p th:text="${'Tapa: '+partido.getEquipoPC().getJugador2().getTapa()}"></p>
+                        <p th:text="${'Inter: '+partido.getEquipoPC().getJugador2().getIntercepcion()}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<img src="images/CANCHA.jpg" alt="cancha" class="cancha-img">
+<script src="js/partido.js"></script>
+</body>
+</html>

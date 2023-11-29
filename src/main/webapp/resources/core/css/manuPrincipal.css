@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.fondo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+.menuPrincipal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.5rem;
+}
+.menuPrincipal a{
+    width: 100%;
+}
+.menuPrincipal a button{
+    width: 100%;
+}
+.guardada{
+    margin-top: 1em;
+
+}
+.guardada button{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+
+

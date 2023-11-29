@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI";
+}
+.volver{
+    border: 3px solid white;
+}
+.tiendaVolver{
+    position: absolute;
+    top: 5rem;
+    left: 8rem;
+}
+.fondo{
+    border: 10px solid #B99F84;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+.inventarioFrame{
+    width: 90%;
+    height: 90%;
+    background-color:#111111;
+    display: inline-block;
+    margin: 2em 4em;
+    padding: 0.5em;
+    font-weight: 600;
+    font-size: larger;
+    border: 5px solid #926540;
+    color: white;
+
+}
+.inventario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inventarioName{
+    padding: 1rem;
+    width: 500em;
+    text-align: center;
+}
+.inventario-productos{
+    width: 1rem;
+    height: 1rem;
+}
+.galeria{
+    width: 102rem;
+    height: 50rem;
+    overflow-y: auto;
+    margin:2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-size{
+    width: 25%;
+}
+
+.card-inventario img{
+    height: 8rem;
+    width: auto;
+}
+
+img{
+    width: 8rem;
+    height: auto;
+}
+.card{
+    width: 14rem !important;
+    height: 14rem !important;
+}
+
+.card-body p{
+    font-size: 1rem;
+}
+.card-body{
+    padding: 1rem 1rem !important;
+}
+.logo{
+    height: 16rem;
+    display: flex;
+    justify-content: center;
+}
+
+.confirmar{
+    position: absolute;
+    left: 46%;
+    bottom: 10rem;
+}

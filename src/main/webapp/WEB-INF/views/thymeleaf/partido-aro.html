@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/partido.css">
+    <title>Partido</title>
+</head>
+<body>
+<img src="images/ARO.jpg" alt="aro" class="cancha-img">
+
+<div class="div-menu-tiro">
+    <form action="tira" method="post">
+        <input type="hidden" name="posicion" id="posicion" th:value="${posicion}">
+        <input type="hidden" name="resultadoBarra" id="resultadoBarra" value="">
+        <button id="tirar">Tirar</button>
+    </form>
+
+    <div class="barra-progreso">
+        <div class="progreso" id="progreso"></div>
+    </div>
+    <script src="js/partido-aro.js"></script>
+</div>
+
+</body>
+</html>

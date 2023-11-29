@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/partido.css">
+    <link rel="stylesheet" href="css/partido-items.css">
+    <title>Partido</title>
+</head>
+<body class="body-partido-items">
+<a href="tienda" class="botonComprar"><img src="images/carrito.png"></a>
+    <div class="partido-item-todos">
+        <h1>Equipar mejoras</h1>
+        <div class="partido-item">
+                        <div th:if="${items.size() == 0}">
+                            <h2>No tenes mejoras compradas!</h2>
+                        </div>
+                        <div th:each="i : ${items}" th:if="${i != null}">
+                            <div class="item">
+                                <img th:src="${i.imagen}">
+                                <div>
+                                    <form action="equipar" method="POST">
+                                        <input type="hidden" name="idEquipo1" th:value="${idEquipo1}">
+                                        <input type="hidden" name="idEquipo2" th:value="${idEquipo2}">
+                                        <h3 th:text="${i.nombre}"></h3>
+                                        <input type="hidden" th:value="${i.getNombre()}" name="nombreProducto">
+                                        <button type="submit" >Equipar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+    </div>
+    
+        <form action="iniciarPartida" method="get">
+            <input type="hidden" name="idEquipo1" th:value="${idEquipo1}">
+            <input type="hidden" name="idEquipo2" th:value="${idEquipo2}">
+            <button type="submit">Confirmar</button>
+        </form>
+
+</body>
+</html>

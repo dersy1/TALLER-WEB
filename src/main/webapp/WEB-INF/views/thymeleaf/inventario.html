@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/manuPrincipal.css">
+    <link rel="stylesheet" href="css/inventario.css">
+
+    <title>Inventario</title>
+
+</head>
+<body>
+<img class="fondo" src="images/pisoCancha.png">
+<div class="inventarioFrame">
+    <div class="header-tienda w-100 m-auto d-flex justify-content-around">
+        <a href="menuPrincipal" class="tiendaVolver m-auto">
+            <button class="volver">Volver</button>
+        </a>
+        <div class="inventarioName">
+            <h3>Mi inventario</h3>
+        </div>
+    </div>
+    <div class="galeria">
+            <!--            <form action="seleccionarProducto" method="POST">-->
+            <!--                <input type="hidden" name="idInventario" th:value="${idInventario}">-->
+                <div class="inventario">
+                    <div th:each="i : ${inventario}" class="me-5 mb-4 card-size">
+                        <div class="card text-center card-inventario">
+                            <img th:src="${i.imagen}" class="m-auto pt-3 img-inventario-producto" alt="...">
+                            <div class="card-body">
+                                <h5 th:text="${i.nombre}" class="card-title"></h5>
+                                <p th:text="'Cantidad: ' + ${i.cantidad}" class="card-text"></p>
+                                <!--                                    <button type="submit" th:value="${i.idProducto}" name="idProducto" id="idProducto" th:text="Comprar"></button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!--            </form>-->
+        </div>
+    </div>
+
+</body>
+</html>

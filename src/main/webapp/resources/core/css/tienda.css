@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI";
+}
+a{
+    text-decoration: none;
+    color: #ffffff
+}
+.volver{
+    border: 3px solid white;
+}
+.fondo{
+    border: 10px solid #B99F84;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+.tiendaFrame{
+    width: 90%;
+    height: 90%;
+    background-color:#111111;
+    display: inline-block;
+    margin: 2em 4em;
+    padding: 0.5em;
+    font-weight: 600;
+    font-size: larger;
+    border: 5px solid #926540;
+    color: white;
+
+}
+.tiendaName{
+    padding: 1rem;
+    width: 60%;
+    text-align: center;
+}
+.galeria{
+    width: 100rem;
+    height: 45rem;
+    overflow-y: auto;
+    margin: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-body p{
+    font-size: 1rem;
+}
+
+.card-size{
+    width: 40%;
+}
+.card-producto img{
+    height: 8rem;
+    width: auto;
+}
+.card {
+    --bs-card-spacer-y: 2rem !important;
+    --bs-card-spacer-x: 2rem !important;
+    --bs-card-title-spacer-y: 1.5rem !important;
+}
+
+img{
+    width: 10em;
+    height: auto;
+}
+.logo{
+    height: 16rem;
+    display: flex;
+    justify-content: center;
+}
+
+.confirmar{
+    position: absolute;
+    left: 46%;
+    bottom: 10rem;
+}
+.galeria2{
+    display: flex;
+
+}
+.moneda{
+    width:3.5em;
+}
+.tiendaDinero{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+h5{
+    margin-left: 0.5em;
+}

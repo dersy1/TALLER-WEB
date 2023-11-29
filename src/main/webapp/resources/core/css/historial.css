@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+table {
+    width: 50%;
+    height: 20%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead {
+    background-color: #307f7e;
+    color: #fff;
+    text-align: left;
+}
+
+
+th, td {
+    padding: 20px;
+    border: 1px solid #ccc;
+    color: #fff;
+}
+td{
+    background-color:#1f9cbf;
+}
+.fondo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+.volver{
+    display:flex;
+    align-items: center;
+}

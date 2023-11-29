@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elegir Equipo</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/elegirEquipo.css">
+</head>
+<body>
+<img class="fondo" src="images/pisoCancha.png">
+<div class="equipos">
+    <div>
+        <h3>Equipo Jugador</h3>
+    </div>
+    <div class="nombresEquipos">
+        <form action="seleccionarEquipo" method="POST">
+            <input type="hidden" name="idEquipo2" th:value="${idEquipo2}">
+            <div>
+                <table>
+                    <tr th:each="e : ${equipos}">
+                        <td>
+                            <button type="submit" th:if="${idEquipo2!=e.idEquipo}"  th:value="${e.idEquipo}" name="idEquipo1" id="idEquipo"
+                                    th:text="${e.nombre}"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    <div>
+        <h3>Equipo Maquina</h3>
+    </div>
+    <div class="nombresEquipos">
+        <form action="seleccionarEquipo" method="POST">
+            <input type="hidden" name="idEquipo1" th:value="${idEquipo1}">
+            <div>
+                <table>
+                    <tr th:each="e : ${equipos}">
+                        <td>
+                            <button type="submit" th:if="${idEquipo1!=e.idEquipo}" th:value="${e.idEquipo}" name="idEquipo2" id="idEquipo2"
+                                    th:text="${e.nombre}"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="sleccionEquipos">
+    <div class="equipoJugador">
+        <div class="logo">
+            <img th:if="${equipo1 != null}" th:src="${equipo1.getLogo()}" alt="Logo del equipo">
+        </div>
+        <div class="estadisticas">
+            <div class="estadisticasJ1">
+                <p>Jugador: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador1().getNombre()}"/></p>
+
+                <p>Tiro: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador1().getTiro()}"/></p>
+
+                <p>Pase: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador1().getPase()}"/></p>
+
+                <p>Dribling: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador1().getDrible()}"></span></p>
+
+                <p>Robo: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador1().getRobo()}"></span></p>
+
+                <p>Intercepcion: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador1().getIntercepcion()}"></span></p>
+
+                <p>Tapa: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador1().getTapa()}"></span></p>
+
+            </div>
+            <div class="estadisticasJ2">
+                <p>Jugador: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador2().getNombre()}"/></p>
+                <p>Tiro: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador2().getTiro()}"/></p>
+
+                <p>Pase: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador2().getPase()}"/></p>
+
+                <p>Dribling: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador2().getDrible()}"></span></p>
+
+                <p>Robo: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador2().getRobo()}"></span></p>
+
+                <p>Intercepcion: <span th:if="${equipo1 != null}"
+                                       th:text="${equipo1.getJugador2().getIntercepcion()}"></span></p>
+
+                <p>Tapa: <span th:if="${equipo1 != null}" th:text="${equipo1.getJugador2().getTapa()}"></span></p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="equipoMaquina">
+        <div class="logo">
+            <img th:if="${equipo2 != null}" th:src="${equipo2.getLogo()}" alt="Logo del equipo">
+        </div>
+        <div class="estadisticas">
+            <div class="estadisticasJ1">
+                <p>Jugador: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador1().getNombre()}"/></p>
+
+                <p>Tiro: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador1().getTiro()}"/></p>
+
+                <p>Pase: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador1().getPase()}"/></p>
+
+                <p>Dribling: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador1().getDrible()}"></span></p>
+
+                <p>Robo: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador1().getRobo()}"></span></p>
+
+                <p>Intercepcion: <span th:if="${equipo2 != null}"
+                                       th:text="${equipo2.getJugador1().getIntercepcion()}"></span></p>
+
+                <p>Tapa: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador1().getTapa()}"></span></p>
+
+            </div>
+            <div class="estadisticasJ2">
+                <p>Jugador: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador2().getNombre()}"/></p>
+                <p>Tiro: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador2().getTiro()}"/></p>
+
+                <p>Pase: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador2().getPase()}"/></p>
+
+                <p>Dribling: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador2().getDrible()}"></span></p>
+
+                <p>Robo: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador2().getRobo()}"></span></p>
+
+                <p>Intercepcion: <span th:if="${equipo2 != null}"
+                                       th:text="${equipo2.getJugador2().getIntercepcion()}"></span></p>
+
+                <p>Tapa: <span th:if="${equipo2 != null}" th:text="${equipo2.getJugador2().getTapa()}"></span></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+
+    <form action="items">
+            <span th:if="${equipo1!= null && equipo2!= null}">
+                <input type="hidden" name="idEquipo1" th:value="${idEquipo1}" id="idEquipo1-hidden">
+                <input type="hidden" name="idEquipo2" th:value="${idEquipo2}" id="idEquipo2-hidden">
+                <button class="confirmar">Confirmar</button>
+            </span>
+    </form>
+
+
+</div>
+
+</body>
+</html>

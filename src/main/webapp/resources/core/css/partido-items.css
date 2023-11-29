@@ -1,0 +1,33 @@
+.item{
+    background-color:white;
+    padding: 2em;
+    border-radius: 2em;
+    margin: 1em;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.item img{
+    width:7em;
+}
+.partido-item{
+    display: flex;
+    flex-direction: row;
+}
+h3{
+    text-align:center;
+    margin: 0.5em;
+}
+.botonComprar{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.botonComprar img{
+    width: 4rem;
+    height: auto;
+    cursor: pointer;
+}
